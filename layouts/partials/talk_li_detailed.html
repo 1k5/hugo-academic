@@ -5,13 +5,13 @@
       <a href="{{ .Permalink }}" itemprop="url">{{ .Title }}</a>
     </h3>
 
-    <div class="talk-abstract" itemprop="text">
+    <p class="talk-abstract" itemprop="text">
       {{ if .Params.abstract_short }}
       {{ .Params.abstract_short }}
       {{ else }}
       {{ .Params.abstract }}
       {{ end }}
-    </div>
+    </p>
 
     <div class="talk-event">
       {{ if .Params.event }}
