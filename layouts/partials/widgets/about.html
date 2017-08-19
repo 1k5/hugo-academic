@@ -15,12 +15,12 @@
       {{ end }}
 
       <div class="portrait-title">
-        <h2 itemprop="name">{{ $.Site.Params.name }}</h2>
-        <h3 itemprop="jobTitle">{{ $.Site.Params.role }}</h3>
+        <h2 itemprop="name">{{ $.Site.Params.name | htmlUnescape }}</h2>
+        <h3 itemprop="jobTitle">{{ $.Site.Params.role | htmlUnescape }}</h3>
         {{ if $.Site.Params.organization }}
         <h3 itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
           {{ with $.Site.Params.organization_url }}<a href="{{ . }}" target="_blank" itemprop="url">{{ end }}
-            <span itemprop="name">{{ $.Site.Params.organization }}</span>
+            <span itemprop="name">{{ $.Site.Params.organization | htmlUnescape }}</span>
           {{ if $.Site.Params.organization_url }}</a>{{ end }}
         </h3>
         {{ end }}
@@ -52,7 +52,7 @@
         <h3>{{ i18n "interests" | markdownify }}</h3>
         <ul class="ul-interests">
           {{ range .interests }}
-          <li>{{ . }}</li>
+          <li>{{ . | htmlUnescape }}</li>
           {{ end }}
         </ul>
       </div>
